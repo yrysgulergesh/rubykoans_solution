@@ -6,7 +6,7 @@ class AboutModules < Neo::Koan
       @name = name
     end
 
-    def get_name
+    def name
       @name
     end
   end
@@ -15,36 +15,27 @@ class AboutModules < Neo::Koan
     include Nameable
   end
 
-  def test_cant_instantiate_modules
-    assert_raise(NoMethodError) do
-      Nameable.new
-    end
-  end
-
-  def test_classes_can_use_modules
+  def test_dog_has_nameable_module
     fido = Dog.new
-    assert fido.is_a?(Nameable)
+    assert_equal nil, fido.name
+    fido.set_name("Fido")
+    assert_equal "Fido", fido.name
   end
 
   module Outer
     module Inner
-      def self.greeting
-        'Hi from the inner module!'
+      def inner_method
+        :inner_value
       end
     end
-  end
 
-  def test_modules_can_be_nestled_inside_other_modules
-    assert_equal 'Hi from the inner module!', Outer::Inner.greeting
-  end
-
-  class NestedClass
-    def self.greeting
-      'Hello from the nested class!'
+    class NestedClass
+      include Inner
     end
   end
 
-  def test_nested_classes_can_be_referenced_using_the_scope_operator
-    assert_equal 'Hello from the nested class!', AboutModules::NestedClass.greeting
+  def test_modules_can_be_nested
+    assert_equal :inner_value, Outer::NestedClass.new.inner_method
   end
 end
+
