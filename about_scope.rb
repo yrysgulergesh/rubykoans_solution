@@ -41,3 +41,4 @@ class AboutScope < Neo::Koan
     assert_equal "Generic Animal Sound", Bird.superclass.new.sound
   end
 end
+
