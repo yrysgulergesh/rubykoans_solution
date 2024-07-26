@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 # class AboutArrayAssignment < Neo::Koan
@@ -53,8 +53,6 @@
 
 #solition
 
-=======
->>>>>>> 499ca78 (Complete AboutDiceProject and AboutModules)
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutArrayAssignment < Neo::Koan
@@ -95,11 +93,6 @@ class AboutArrayAssignment < Neo::Koan
 
   def test_parallel_assignment_with_one_variable
     first_name, = ["John", "Smith"]
-<<<<<<< HEAD
-    assert_equal "John", first_name
-=======
-    assert_equal  "John", first_name
->>>>>>> 499ca78 (Complete AboutDiceProject and AboutModules)
   end
 
   def test_swapping_with_parallel_assignment
@@ -110,7 +103,4 @@ class AboutArrayAssignment < Neo::Koan
     assert_equal "Roy", last_name
   end
 end
-<<<<<<< HEAD
 
-=======
->>>>>>> 499ca78 (Complete AboutDiceProject and AboutModules)
